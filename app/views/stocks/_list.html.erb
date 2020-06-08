@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Ticker</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <% @tracked_stocks.each do |stock| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%= stock.ticker_symbol %></th>
+        <td><%= stock.name %></td>
+        <td><%= stock.last_price %></td>
+        <td>@mdo</td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
