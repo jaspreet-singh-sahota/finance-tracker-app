@@ -1,8 +1,18 @@
-<% flash.each do |key, msg| %>
-  <div class="alert alert-info alert-dismissible fade show" role="alert">
-    <%= msg %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+
+<% if notice %>
+	<div class='alert alert-success'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+		<%= notice %>
+	</div>
+<% end %>
+
+<% if alert %>
+	<div class='alert alert-danger'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+		<%= alert %>
+	</div>
 <% end %>
