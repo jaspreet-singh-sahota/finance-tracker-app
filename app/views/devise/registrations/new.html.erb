@@ -10,6 +10,17 @@
         <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
       </div>
 
+      <div class="row">
+        <div class="form-group col-6">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: 'First Name', class: 'form-control' %>
+        </div>
+        <div class="form-group col-6">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: 'Last Name', class: 'form-control' %>
+        </div>
+      </div>
+
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>

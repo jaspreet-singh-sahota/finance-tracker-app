@@ -3,9 +3,24 @@
 </div>
 
 <% if @stock %>
-  <div class="card card-header results-block">
+  <div class="card card-header results-block mb-3">
     <strong>Symbol: </strong> <%= @stock.ticker_symbol %>
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
   </div>
+  <% if current_user.can_track_stocks?(@stock.ticker_symbol) %>
+    <div class="results-block mb-3">
+      <%= button_to 'Add Stock', user_stocks_path(user: current_user,ticker_symbol: @stock.ticker_symbol),
+                                 class: 'btn btn-lx btn-success', method: :post %>
+    </div>
+    <% else %>
+      <div class="card card-header bg-warning text-dark results-block mb-3" >
+        <span>You are already tracking</span>
+        <% if !current_user.under_stock_limit? %>
+          this stock
+        <% elsif current_user.stock_already_tracked?(@stock.ticker_symbol) %>
+          10 stocks
+        <% end %>
+      </div> 
+  <% end %>
 <% end %> 
